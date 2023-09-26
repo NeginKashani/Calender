@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calender</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        main {
+            background-color: rgb(37, 34, 34);
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .box {
+            width: 330px;
+            background-color: rgb(164, 155, 155);
+            border: 1px solid rgb(30, 29, 29);
+            border-radius: 15px;
+            font-size: 25px;
+            text-align: center;
+            box-shadow: 3px 3px 10px white;
+            position: relative;
+            z-index: 999;
+        }
+
+        .box>#month,
+        .box>#year {
+            width: 100%;
+            background-color: rgb(150, 0, 0);
+            text-shadow: 3px 3px 10px black,
+                -3px -3px 10px black;
+            border-radius: 10px;
+            letter-spacing: 3px;
+            padding: 15px 0;
+            font-weight: bolder;
+            color: rgb(206, 202, 212);
+
+        }
+
+        .box>#month {
+            position: relative;
+        }
+
+        .box>#day {
+            margin-top: 30px;
+            font-size: 25px;
+            font-weight: bolder;
+            background-image: linear-gradient(#f9e6d3, #c19576);
+            text-shadow: 1px 1px rgb(56, 46, 46);
+        }
+
+        .box>#date {
+            margin-top: 15px;
+            color: rgb(172, 159, 170);
+            text-shadow: 6px 6px rgb(56, 46, 46);
+            font-size: 100px;
+            font-weight: bolder;
+            -webkit-text-stroke-width: 5px;
+            -webkit-text-stroke-color: rgb(43, 41, 41);
+        }
+
+        .line {
+            width: 30px;
+            height: 90px;
+            border-radius: 5px;
+            background-color: rgb(13, 14, 13);
+            z-index: 9999;
+            position: absolute;
+            margin-top: -390px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+
+        <div class="line">
+        </div>
+        <div class="box">
+            <h1 id="month">January </h1>
+            <h1 id="day">Sunday</h1>
+            <h1 id="date">05</h1>
+            <h1 id="year">2005</h1>
+        </div>
+
+    </main>
+    <script>
+        let _month = document.getElementById('month')
+        let _day = document.getElementById('day')
+        let _dateofyear = document.getElementById('date')
+        let _year = document.getElementById('year')
+
+        let _monthName = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+        let _dayName = ['Sunday', 'Monday', 'Tuseday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+        let _date = new Date()
+        // console.log(_date);
+        let month = _date.getMonth()
+        let day = _date.getDay()
+        let dateoftoday = _date.getDate()
+        let year = _date.getFullYear()
+
+        _month.innerHTML = _monthName[month]
+        _day.innerHTML = _dayName[day]
+        _dateofyear.innerHTML = dateoftoday
+        _year.innerHTML = year
+
+    </script>
+</body>
+
+</html>
